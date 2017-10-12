@@ -26,7 +26,6 @@ public class UserController {
      * @param response
      */
     @RequestMapping("login")
-
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");         //获取用户名
         String password = request.getParameter("password");         //获取密码
@@ -60,6 +59,7 @@ public class UserController {
         UserEntity userEntity = userService.findByUsername(username);  //查询用户是否存在以及相对应的处理
         if(userEntity!=null){
             json.put("msg",false);
+
         }else {
             try {
                 userEntity = new UserEntity();                  //存储用户
@@ -73,6 +73,7 @@ public class UserController {
             }
         }
         //json.put("msg",s);
+
         String js = json.toString();
         response.getWriter().write(js.toString());
     }
