@@ -65,6 +65,8 @@ public class UserController {
                 userEntity = new UserEntity();                  //存储用户
                 userEntity.setUsername(username);
                 userEntity.setPassword(password);
+                userEntity.setCredit(100);
+                userEntity.setMoney(0);
                 userService.save(userEntity);
                 json.put("msg",true);
             } catch (Exception e) {

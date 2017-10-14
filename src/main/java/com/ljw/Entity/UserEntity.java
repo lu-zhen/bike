@@ -11,6 +11,11 @@ public class UserEntity {
     private int uid;
     private String username;
     private String password;
+    private String name;
+    private String sex;
+    private String location;
+    private Integer money;
+    private Integer credit;
 
     @Id
     @Column(name = "uid", nullable = false)
@@ -62,5 +67,55 @@ public class UserEntity {
         result = 31 * result + (username != null ? username.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "name", nullable = true, length = 255)
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Basic
+    @Column(name = "sex", nullable = true, length = 255)
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    @Basic
+    @Column(name = "location", nullable = true, length = 255)
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    @Basic
+    @Column(name = "money", nullable = true)
+    public Integer getMoney() {
+        return money;
+    }
+
+    public void setMoney(Integer money) {
+        this.money = money;
+    }
+
+    @Basic
+    @Column(name = "credit", nullable = true)
+    public Integer getCredit() {
+        return credit;
+    }
+
+    public void setCredit(Integer credit) {
+        this.credit = credit;
     }
 }
