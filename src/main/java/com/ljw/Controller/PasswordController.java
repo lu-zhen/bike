@@ -41,7 +41,8 @@ public class PasswordController {
 
     @RequestMapping("changepassword")
     public void change(HttpServletRequest request,HttpServletResponse response) throws IOException {
-        String username = request.getParameter("username");
+        String username = request.getSession().getAttribute("username").toString();
+//        System.out.println(username);
         String password = request.getParameter("password");
         String newPassword = request.getParameter("newPassword");
         JSONObject json = new JSONObject();
